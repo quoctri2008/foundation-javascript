@@ -66,3 +66,23 @@ const newMapArray = mapArray.map(number => number * 2);
 
 console.log('Map Array: ', newMapArray)
 
+// Some array
+const someArray = [1, 2, 3, 4, 5];
+const resSomeArray = someArray.some(num => num % 2 === 0);
+
+console.log('Some Array', resSomeArray)
+
+// Every array
+const everyArray = [1, 30, 39, 29, 10, 13, 50];
+const resEvery = everyArray.every(numb => numb < 40);
+console.log('Every Array', resEvery)
+
+// forEach array
+const forEachArray = [1, 2, 3, 4, 5];
+const cloneArray = [];
+
+forEachArray.forEach(num => {
+ cloneArray.push(num);
+})
+
+console.log('forEach Array', cloneArray)
