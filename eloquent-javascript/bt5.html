@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bai tap 5: javascript</title>
+</head>
+
+<body>
+    <h1>requirement: cho 1 input nhập số. Kiểm tra số user đã nhập có trong cái array 0 -> 50. Nếu có thì print ra “số
+        này có trong array", và ngược lại.
+    </h1>
+    <input type="text" id="txt" name="txt">
+
+    <button type="button" onclick="onSubmit()">Click Me!</button>
+    <br />
+
+    <div id="result"></div>
+
+    <script>
+        let array = [];
+        for (let i = 0; i <= 50; i++) {
+            array.push(i);
+        }
+
+        // function onSubmit() {
+        //     const txtNum = Number(document.getElementById('txt').value);
+        //     const res = document.getElementById('result');
+
+        //     const checkExist = array.some(function (value) {
+        //         return txtNum === value;
+        //     })
+
+        //     if (checkExist) {
+        //         res.innerHTML = 'Co trong array'
+        //     } else {
+        //         res.innerHTML = 'Khong trong array'
+        //     }
+        // }
+        // xoa so 7 trong mang array
+        for (let i = 0; i < array.length - 1; i++) {
+            if (array[i] === 7) {
+                array.splice(i, 1);
+            }
+        }
+        console.log(array);
+    </script>
+
+</body>
+
+
+</html>
