@@ -7,3 +7,5 @@ console.log('Map array: ', newArray);
 
 const filterArray = newArray.filter(num => num % 2 == 0)
 console.log('Filter array: ', filterArray);
+
+// apply some, every
