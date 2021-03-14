@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+</head>
+
+<body>
+
+    <h1 style="color: red;">INDEXOF ARRAY</h1>
+    <p style="color: orangered">tim bien index trong array</p>
+    <button onclick="myFunction()">Try it</button>
+    <p id="demo"></p>
+
+
+</body>
+<script>
+    const myfamily = ["anh", "thao", "vuong", "tri"];
+    document.getElementById("demo").innerHTML = myfamily;
+    function myFunction() {
+        let b = myfamily.indexOf("thao")
+        document.getElementById("demo").innerHTML = b;
+    }
+</script>
+
+</html>

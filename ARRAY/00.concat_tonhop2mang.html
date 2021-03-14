@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+</head>
+
+<body>
+
+    <h1 style="color: red;">CONCAT ARRAY</h1>
+    <p style="color: orangered">tong hop 2 array thanh 1 array tong </p>
+    <button onclick="myFunction()">Try it</button>
+    <p id="demo"></p>
+
+
+</body>
+<script>
+    const myfamily = ["anh", "thao", "vuong", "tri"];
+    const herfamily = ["man", "van", "hanh"];
+    document.getElementById("demo").innerHTML = myfamily;
+    function myFunction() {
+        let family = myfamily.concat(herfamily)
+        document.getElementById("demo").innerHTML = family;
+    }
+</script>
+
+</html>

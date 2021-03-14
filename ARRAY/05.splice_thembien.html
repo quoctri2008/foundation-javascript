@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+</head>
+
+<body>
+
+    <h1 style="color: red;">SPLICE ARRAY</h1>
+    <p style="color: orangered">them bien chỉ định trong array</p>
+    <button onclick="myFunction()">Try it</button>
+    <p id="demo"></p>
+
+
+</body>
+<script>
+    const myfamily = ["anh", "thao", "vuong", "tri"];
+    document.getElementById("demo").innerHTML = myfamily;
+    function myFunction() {
+        myfamily.splice(2, 1, "van", "ngoc");//index = 2, clear 1 phần tử bắt đầu từ index 2, thêm 2 phần tử "van","ngoc"
+        document.getElementById("demo").innerHTML = myfamily;
+    }
+</script>
+
+</html>

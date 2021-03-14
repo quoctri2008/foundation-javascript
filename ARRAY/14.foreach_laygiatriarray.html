@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+</head>
+
+<body>
+
+    <h1 style="color: red;">FOREACH ARRAY</h1>
+    <p style="color: orangered">lay gia tri phan tu trong array</p>
+    <button onclick="myFunction()">Try it</button>
+    <p id="demo"></p>
+
+
+</body>
+<script>
+    const mycompany = [
+        { name: 'tri', salary: 500, month: 12 },
+        { name: 'truong', salary: 1000, month: 10 },
+        { name: 'trang', salary: 300, month: 8 },
+    ];
+    console.log(mycompany);
+    mycompany.forEach(myFunction);
+    // document.getElementById("demo").innerHTML = mycompany;
+    function myFunction(item, index) {
+        document.getElementById("demo").innerHTML += index + ':' + item.name + ',' + item.salary + ',' + item.month + "<br>";
+    }
+</script>
+
+</html>

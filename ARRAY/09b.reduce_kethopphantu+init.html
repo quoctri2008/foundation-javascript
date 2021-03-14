@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+</head>
+
+<body>
+
+    <h1 style="color: red;">REDUCE ARRAY</h1>
+    <p style="color: orangered">ket hop tung phan tu tu trai qua trong array</p>
+    <button onclick="myFunction()">Try it</button>
+    <p id="demo"></p>
+
+
+</body>
+<script>
+    const mycompany = [
+        { name: 'tri', salary: 500, month: 12 },
+        { name: 'truong', salary: 1000, month: 10 },
+        { name: 'trang', salary: 300, month: 8 },
+    ];
+    console.log(mycompany);
+    // document.getElementById("demo").innerHTML = mycompany;
+    function myFunction() {
+        let sumsalary = mycompany.reduce(function (sumSA, com) {
+            return sumSA + com.salary * com.month;
+        }, 0);
+        document.getElementById("demo").innerHTML = sumsalary;
+    }
+</script>
+
+</html>

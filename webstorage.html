@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+</head>
+
+<body>
+
+    <h1>This is a Heading</h1>
+    <p>This is a paragraph.</p>
+    <p id="demo"></p>
+
+    <button onclick="clickCount()" type="button">Click Me!</button>
+    <p id="result"></p>
+
+    <script>
+        // const myuser = {
+        //     name: "tri",
+        //     age: 10
+        // }
+        // const myJson = JSON.stringify(myuser)
+        // localStorage.setItem('user', myJson)
+        // const getUser = localStorage.getItem('user');
+        // const parserUser = JSON.parse(getUser);
+        // console.log(parserUser)
+        // document.getElementById("demo").innerHTML = `name: ${parserUser.name} - age: ${parserUser.age}`
+        const numb = 1;
+
+        function clickCount() {
+            if (localStorage.click) {
+                localStorage.click = Number(localStorage.click) + 1;
+                document.getElementById("result").innerHTML = "You have clicked the button " + localStorage.click + " time(s).";
+            } else {
+                localStorage.click = 0;
+            }
+
+        }
+
+
+        const array = ['1', '2', 3, 4, {
+            name: 'tr'
+        }]
+
+        const stringArray = JSON.stringify(array)
+        const parserArray = JSON.parse(stringArray)
+
+        localStorage.setItem('ac', stringArray);
+
+        console.log('parserArray: ', parserArray)
+
+        const obj1 = { name: 1 };
+        const Json1 = JSON.stringify(obj1)
+        console.log(Json1);
+        localStorage.setItem('name', obj1);
+    </script>
+</body>
+
+</html>

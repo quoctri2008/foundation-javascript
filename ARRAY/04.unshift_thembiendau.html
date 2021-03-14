@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+</head>
+
+<body>
+
+    <h1 style="color: red;">UNSHIFT ARRAY</h1>
+    <p style="color: orangered">them bien dau tien trong array</p>
+    <button onclick="myFunction()">Try it</button>
+    <p id="demo"></p>
+
+
+</body>
+<script>
+    const myfamily = ["anh", "thao", "vuong", "tri"];
+    document.getElementById("demo").innerHTML = myfamily;
+    function myFunction() {
+        myfamily.unshift("van");
+        document.getElementById("demo").innerHTML = myfamily;
+    }
+</script>
+
+</html>

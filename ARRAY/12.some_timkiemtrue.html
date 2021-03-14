@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+</head>
+
+<body>
+
+    <h1 style="color: red;">SOME ARRAY</h1>
+    <p style="color: orangered">kiểm traW true false trong array</p>
+    <button onclick="myFunction()">Try it</button>
+    <p id="demo"></p>
+
+
+</body>
+<script>
+    const score = [5, 7, 8, 9, 4]
+    document.getElementById("demo").innerHTML = score;
+    function checkPass(score) {
+        return score < 5;
+    }
+    function myFunction() {
+        if (score.some(checkPass) == true) {
+            document.getElementById("demo").innerHTML = "không đủ điểm đậu";
+        } else {
+            document.getElementById("demo").innerHTML = "đủ điểm đậu";
+        }
+    }
+</script>
+
+</html>

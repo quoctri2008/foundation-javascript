@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+</head>
+
+<body>
+
+    <h1>This is a Heading</h1>
+    <p>This is a paragraph.</p>
+    <p id="demo"></p>
+    <script>
+        // khi ma` BE tra ve 1 json string cho FE
+        const dataBE = '{ "name":"John", "age":30, "city":"New York"}'
+        const parseData = JSON.parse(dataBE)
+        console.log('dataBE: ', dataBE, parseData);
+        document.getElementById("demo").innerText = `name: ${parseData.name}`;
+
+        // loop object ra key vs value
+        // way1
+        for (const [key, value] of Object.entries(parseData)) {
+            // const key = ele[0];
+            // const value = ele[1];
+            // console.log(ele)
+            console.log('way1: ', `${key}:${value}`)
+        }
+
+        // way 2
+        Object.entries(parseData).map(element => {
+            const [key, value] = element;
+            // const key = element[0];
+            // const value = element[1];
+            console.log('way2: ', `${key}:${value}`)
+        })
+
+        // loop object: for ... in
+        console.log('===loop object vs for ... in')
+        for (const key in parseData) {
+            // key name: -> parseData['name']
+            // key age: -> parseData['age']
+            // key city: -> parseData['city']
+            console.log('loop object: ', `${key}:${parseData[key]}`)
+        }
+
+        // loop array: for ... of: console log id vs name
+        console.log('===loop array vs for ... of')
+        const arrayObj = [
+            {
+                id: 1,
+                name: 'tri'
+            },
+            {
+                id: 2,
+                name: 'truong'
+            }
+        ]
+
+        for (const element of arrayObj) {
+            for (const key in element) {
+                console.log('loop objectname:', `${key}:${element[key]}`)
+            }
+
+        }
+
+        // loop array: .map(): console log id vs name (react)
+        console.log('====loop map() react:',)
+        arrayObj.map(item => {
+            console.log('loop map():', `id: ${item.id}, name: ${item.name}`)
+        })
+
+
+        // khi FE gui data la 1 json string len BE
+        const dataFE = {
+            name: 'tri',
+            age: 18
+        }
+        const prepareData = JSON.stringify(dataFE);
+        console.log('dataFE: ', dataFE, prepareData)
+
+
+
+    </script>
+</body>
+
+
+</html>

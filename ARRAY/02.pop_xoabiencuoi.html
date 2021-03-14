@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+</head>
+
+<body>
+
+    <h1 style="color: red;">POP ARRAY</h1>
+    <p style="color: orangered">xoa bien cuoi cung trong array</p>
+    <button onclick="myFunction()">Try it</button>
+    <p id="demo"></p>
+
+
+</body>
+<script>
+    const myfamily = ["anh", "thao", "vuong", "tri", "van"];
+    document.getElementById("demo").innerHTML = myfamily;
+    function myFunction() {
+        myfamily.pop();
+        document.getElementById("demo").innerHTML = myfamily;
+    }
+</script>
+
+</html>

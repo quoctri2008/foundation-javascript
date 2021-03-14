@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Page Title</title>
+</head>
+
+<body>
+
+    <h1 style="color: red;">IF...ELSE</h1>
+    <p style="color: orangered;">hàm điều kiện trong javascript.</p>
+    <button onclick="myFunction()">Try it</button>
+    <p id="demo"></p>
+</body>
+<script>
+    function myFunction() {
+        const i = Math.random();
+        if (i < 0.5) {
+            document.getElementById("demo").innerHTML = i + '<br>' + "mặt sấp";
+        } else {
+            document.getElementById("demo").innerHTML = i + '<br>' + "mặt ngửa";
+        }
+    }
+</script>
+
+</html>

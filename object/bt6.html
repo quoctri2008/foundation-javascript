@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+</head>
+
+<body>
+
+    <h1>This is a Heading</h1>
+    <p>This is a paragraph.</p>
+    <p id="demo"></p>
+    <script>
+        let myObj;
+        let i, j, x = '';
+        myObj = {
+            "name": "John",
+            "age": 30,
+            "cars": [
+                { "name": "Ford", "models": ["Fiesta", "Focus", "Mustang"] },
+                { "name": "BMW", "models": ["320", "X3", "X5"] },
+                { "name": "Fiat", "models": ["500", "Panda"] }
+            ]
+        }
+        for (i in myObj.cars) {
+            x += "<h3>" + myObj.cars[i].name + "</h3>";
+            // myObj.cars[0].name
+            for (j in myObj.cars[i].models) {
+                x += myObj.cars[i].models[j] + "<br/>";
+                // myObj.cars[0].models[0]
+            }
+
+        }
+        document.getElementById("demo").innerHTML = x;
+    </script>
+</body>
+
+</html>

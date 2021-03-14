@@ -1,0 +1,18 @@
+{
+    "name": "John",
+    "age": 31,
+    "pets":[
+    	{
+        	"animal": "dog",
+        	"name": "fido"
+    	},
+    	{
+        	"animal": "cat",
+        	"name": "felix"
+    	},
+    	{
+        	"animal": "hamster",
+        	"name": "lightning"
+    	}
+    ]
+}
