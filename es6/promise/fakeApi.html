@@ -246,7 +246,14 @@
             // show loading
             document.getElementById("floatingBarsG").hidden = false;
             // fetch api
-            fetch('https://api.mocki.io/v1/b043df5a')
+            const prepareData = {
+                name: 'tri',
+                email: 'tri@gmail.com'
+            }
+            fetch('https://api.mocki.io/v1/b043df5a', {
+                method: 'POST',
+                body: JSON.stringify(prepareData)
+            })
                 .then((response) => response.json())
                 .then(data => {
                     // hide loading
