@@ -6,7 +6,7 @@
 </head>
 
 <body>
-
+    <div id="loading">loading</div>
     <form id="form">
         <div class="container">
             <label for="uname"><b>Username</b></label>
@@ -29,11 +29,35 @@
 
 </body>
 <script>
+    document.getElementById('loading').style.display = 'block';
+    let listUsers = [];
+    fetch('https://tony-json-server.herokuapp.com/api/users')
+        .then(response => response.json())
+        .then(res => {
+            localStorage.setItem("users", JSON.stringify(res.data))
+            listUsers = res.data;
+            document.getElementById('loading').style.display = 'none';
+        })
+        .catch(err => err);
+
+
+
     document.getElementById("btnSubmit").addEventListener("click", function (event) {
         event.preventDefault();
-        const inputusername = document.getElementById("user").value
+        console.log(listUsers)
+
+        let datagetLogin = JSON.parse(localStorage.getItem("data"));
+        console.log(datagetLogin);
+        const inputusername = document.getElementById("user").value;
         const inputpassword = document.getElementById("pass").value;
-        console.log(inputusername, inputpassword)
+        for (let keyLogin in datagetLogin) {
+            if (inputusername == datagetLogin[keyLogin].email && inputpassword == datagetLogin[keyLogin].password) {
+                localStorage.setItem("user", JSON.stringify(datagetLogin[keyLogin]));
+                location.href = './contact-form.html'
+                return;
+            }
+        }
+        alert("password or email no correct");
     });
 //user login: neu co localstorage -> index
 

@@ -8,7 +8,7 @@
 <body>
     <h1>CONTACT FORM</h1>
     <div class="container">
-        <form action="action_page.php">
+        <form id="contactForm">
 
             <label for="fname">First Name</label>
             <input type="text" id="fname" name="firstname" placeholder="Your name..">
@@ -27,9 +27,54 @@
             <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
 
             <input type="submit" value="Submit">
-            <input type="submit" value="logout">
+            <input type="button" value="logout" id="logout">
         </form>
     </div>
+    <script>
+        window.addEventListener("load", function () {
+            const user = JSON.parse(localStorage.getItem("data"));
+
+            const input_firstname = document.getElementById("fname");
+            const input_lastname = document.getElementById("lname");
+            const input_country = document.getElementById("country");
+            const input_subject = document.getElementById("subject");
+            input_firstname.value = user.firstname || '';
+            input_lastname.value = user.lastname || '';
+            input_country.value = user.country || '';
+            input_subject.value = user.subject || '';
+
+            const contactForm = document.getElementById("contactForm");
+            contactForm.addEventListener("submit", function (event) {
+                event.preventDefault();
+                let dataContactform = JSON.parse(localStorage.getItem("data"));
+                const input_firstname = document.getElementById("fname").value;
+                const input_lastname = document.getElementById("lname").value;
+                const input_country = document.getElementById("country").value;
+                const input_subject = document.getElementById("subject").value;
+                // localStorage.setItem("data", JSON.stringify(dataContactform));
+                user.firstname = input_firstname;
+                user.lastname = input_lastname;
+                user.country = input_country;
+                user.subject = input_subject;
+                localStorage.setItem("data", JSON.stringify(user));
+                for (let key in dataContactform) {
+                    if (dataContactform[key].email == user.email) {
+                        dataContactform.splice(key, 1, user);
+                        localStorage.setItem("data", JSON.stringify(dataContactform));
+                    }
+                }
+            })
+            const logout = document.getElementById("logout");
+            logout.addEventListener("click", function () {
+                // localStorage.removeItem("data");
+                // location.href = './login.html'
+            })
+            // console.log(document.getElementById("fname").value);
+
+        })
+
+    </script>
 </body>
+
 
 </html>
