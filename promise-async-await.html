@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+</head>
+
+<body>
+
+    <h1>Promise</h1>
+    <script>
+        // create a promise
+        const isEven = 5
+        const p1 = new Promise((resolve, reject) => {
+            if (isEven % 2 === 0) {
+                resolve('this is even') // success
+            } else {
+                reject(new Error('this is not even')) // failure
+            }
+        })
+
+        p1
+        .then(
+            value => { console.log('success then: ', value) },
+            error => { console.log('reject then: ', error) }  
+        )
+        .catch(error => console.log('error: ', error))
+
+
+        // create a promise with Promise.resolve
+        const p2 = Promise.resolve('other resolve').then(value => console.log('promise resolve: ', value))
+        console.log(p2)
+
+        // create a promise with Promise.reject
+        const p3 = Promise.reject('other resolve').catch(value => console.log('promise reject: ', value))
+        console.log(p3)
+
+        // chaining promises
+        // fetch('https://tony-json-server.herokuapp.com/api/users')
+        //     .then(res => res.json())
+        //     .then(value => console.log('chaining promise: ', value))
+        // fetch('https://jsonplaceholder.typicode.com/posts')
+        //     .then(res => res.json())
+        //     .then(value => console.log('chaining promise posts: ', value))
+
+        // promise anti-pattern: nested
+        const asyncFunc2 = new Promise(resolve => {
+            resolve('this is asyncFunc2') // success
+        })
+        function aysncFunc1() {
+            return new Promise((resovle, reject) => {
+                asyncFunc2
+                    .then(value => {
+                        resovle(1234);
+                    })
+                    .catch(error => reject(error))
+            })
+        }
+
+        aysncFunc1().then(value1 => {
+            asyncFunc2.then(value2 => {
+                console.log('anti pattern: ', value1, value2)
+            })
+        })
+
+        // promise.all
+        const pall2 = 42;
+        const pall3 = new Promise((resovle, reject) => {
+            setTimeout(resovle(2), 1000)
+        })
+        const pall1 = new Promise(resovle => resovle(1))
+
+        const getUsers = () => fetch('https://tony-json-server.herokuapp.com/api/users').then(res => res.json())
+        const getTodos = () => fetch('https://tony-json-server.herokuapp.com/api/todos').then(res => res.json())
+        const getPosts = () => fetch('https://jsonplaceholder.typicode.com/posts').then(res => res.json())
+
+        // const res = Promise.all([getTodos(), getUsers(), getPosts()]).then(value => {
+        //     console.log('promise all: ', value)
+        // }).catch(err => console.log('err: ', err))
+
+        // async await
+        async function async1() {
+            const getAsync1 = await getUsers();
+            console.log('async: ', getAsync1);
+
+        }
+        async function async2() {
+            const getAsync2 = await getTodos();
+            console.log('async: ', getAsync2);
+        }
+        async1();
+        async2();
+
+        // async/await2
+        async function funcGetPost() {
+            const res = await fetch('https://jsonplaceholder.typicode.com/posts');
+            const json = await fetch('https://jsonplaceholder.typicode.com/posts');
+            console.log('funcGetPost: ', json)
+        }
+        funcGetPost();
+
+        // try catch async await
+        // regular function
+        async function funcGetPost2() {
+            try {
+                const res = await fetch('https://jsonplaceholder.typicode.com/posts');
+                const jsonData = await res.json();
+                console.log('success funcGetPost2: ', jsonData)
+            } catch(error) {
+                console.log('error funcGetPost2: ', error)
+            }
+        }
+        funcGetPost2();
+
+        // arrow function
+        const funcGetPost3 = async () => {
+            try {
+                const res = await fetch('https://jsonplaceholder.typicode.com/posts');
+                const jsonData = await res.json();
+                console.log('success funcGetPost3: ', jsonData)
+            } catch(error) {
+                console.log('error funcGetPost3: ', error)
+            }
+        }
+        funcGetPost3();
+
+    </script>
+</body>
+
+</html>
